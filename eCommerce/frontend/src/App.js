@@ -10,8 +10,10 @@ export default class App extends Component {
     render() {
         return (
             <BrowserRouter>
+            <div className="container">
+            <NavBar/>
+            </div>
                 <div className="container">
-                    <NavBar/>
                     <Route path="/" exact component = {Home}></Route>
                     <Route path="/add" component = {CreateProducts}></Route>
                     <Route path="/edit/:id" component = {EditProducts}></Route>

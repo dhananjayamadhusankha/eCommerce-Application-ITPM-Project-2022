@@ -56,7 +56,11 @@ export default class Home extends Component {
                     {this.state.products.map((products, index) => (
                     <tr key={index}>
                         <th scope="row">{index+1}</th>
-                        <td><a href={`/products/${products._id}`} style = {{textDecoration:'none'}}> {products.productName}</a></td>
+                        <td>
+                            <a href={`/products/${products._id}`} style = {{textDecoration:'none'}}> 
+                            {products.productName}
+                            </a>
+                        </td>
                         <td>{products.quantity}</td>
                         <td>{products.originalTitle}</td>
                         <td>{products.productPrice}</td>

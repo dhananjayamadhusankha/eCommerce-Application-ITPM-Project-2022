@@ -22,7 +22,7 @@ router.route('/save').post((req, res) => {
 });
 
 //get products
-router.route('/displayProducts').get((req, res) => {
+router.route('/display').get((req, res) => {
     products.find().exec((err, products) => {
 
         if(err){
@@ -39,8 +39,8 @@ router.route('/displayProducts').get((req, res) => {
 });
 
 //get a specific products
-router.route('/:productID').get((req,res)=>{
-    let productID = req.params.productID;
+router.route('/display/:id').get((req,res)=>{
+    let productID = req.params.id;
 
     products.findById(productID,(err,products)=>{
         if(err){
@@ -55,12 +55,12 @@ router.route('/:productID').get((req,res)=>{
 
  
 //update products
-router.route('/update/:productID').put((req,res)=>{
+router.route('/update/:id').put((req,res)=>{
     products.findByIdAndUpdate(
-        req.params.productID,{
+        req.params.id,{
             $set:req.body
         },
-        (err,product)=>{
+        (err,products)=>{
             
             if(err){
                 return res.status(400).json({error:err});
@@ -74,7 +74,7 @@ router.route('/update/:productID').put((req,res)=>{
 
 
 //Delete products
-router.route('/delete/:productID').delete((req,res)=>{
+router.route('/delete/:id').delete((req,res)=>{
     products.findByIdAndRemove(req.params.productID).exec((err,deleteProduct)=>{
         
         if(err) return res.status(400).json({

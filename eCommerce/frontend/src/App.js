@@ -10,14 +10,14 @@ export default class App extends Component {
     render() {
         return (
             <BrowserRouter>
-            <div className="container">
+            <div >
             <NavBar/>
             </div>
                 <div className="container">
                     <Route path="/" exact component = {Home}></Route>
-                    <Route path="/add" component = {CreateProducts}></Route>
-                    <Route path="/edit/:id" component = {EditProducts}></Route>
-                    <Route path="/products/:id" component = {ProductDetails}></Route>
+                    <Route path="/save" component = {CreateProducts}></Route>
+                    <Route path="/update/:id" component = {EditProducts}></Route>
+                    <Route path="/display/:id" component = {ProductDetails}></Route>
                 </div>            
             </BrowserRouter>
         )

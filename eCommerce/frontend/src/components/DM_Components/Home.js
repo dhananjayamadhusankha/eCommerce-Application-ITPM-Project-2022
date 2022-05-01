@@ -10,21 +10,22 @@ export default class Home extends Component {
         };
     }
 
+    //Retrieve Product
     componentDidMount() {
         this.retrieveProducts();
     }
 
     retrieveProducts() {
-        axios.get("/products/displayProducts").then((res) => {
+        axios.get("/display").then((res) => {
             if (res.data.success) {
                 this.setState({
                     products: res.data.existingProducts
                 });
-
                 console.log(this.state.products);
             }
-        })
+        });
     }
+    
     render() {
         return (
             <div>
@@ -57,7 +58,7 @@ export default class Home extends Component {
                     <tr key={index}>
                         <th scope="row">{index+1}</th>
                         <td>
-                            <a href={`/products/${products._id}`} style = {{textDecoration:'none'}}> 
+                            <a href={`/display/${products._id}`} style = {{textDecoration:'none'}}> 
                             {products.productName}
                             </a>
                         </td>
@@ -88,7 +89,7 @@ export default class Home extends Component {
                     </tbody>
                 </table>
 
-                <button className="btn btn-success"> <a href="/add" style={{textDecoration:'none', color:'white'}}>Create Product</a></button>
+                <button className="btn btn-success"> <a href="/save" style={{textDecoration:'none', color:'white'}}>Create Product</a></button>
                 </font>
 
             </div>

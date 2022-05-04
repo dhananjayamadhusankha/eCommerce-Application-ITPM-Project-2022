@@ -33,4 +33,4 @@ app.listen(PORT, () => {
 const productRoutes = require('./routes/DM_route/products');
 
 //routes
-app.use("/products", productRoutes);
+app.use(productRoutes);

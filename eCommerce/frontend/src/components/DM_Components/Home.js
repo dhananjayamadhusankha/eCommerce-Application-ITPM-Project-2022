@@ -16,7 +16,7 @@ export default class Home extends Component {
     }
 
     retrieveProducts() {
-        axios.get("/display").then((res) => {
+        axios.get("/products/displayProducts").then((res) => {
             if (res.data.success) {
                 this.setState({
                     products: res.data.existingProducts
@@ -58,7 +58,7 @@ export default class Home extends Component {
                     <tr key={index}>
                         <th scope="row">{index+1}</th>
                         <td>
-                            <a href={`/display/${products._id}`} style = {{textDecoration:'none'}}> 
+                            <a href={`/products/${products._id}`} style = {{textDecoration:'none'}}> 
                             {products.productName}
                             </a>
                         </td>

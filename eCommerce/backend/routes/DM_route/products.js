@@ -4,7 +4,7 @@ const products = require ('../../models/DM_model/products');
 const router = express.Router();
 
 //save products 
-router.route('/save').post((req, res) => {
+router.route('/products/save').post((req, res) => {
     
     let newProducts = new products(req.body);
     newProducts.save((err) => {
@@ -22,7 +22,7 @@ router.route('/save').post((req, res) => {
 });
 
 //get products
-router.route('/display').get((req, res) => {
+router.route('/displayProducts').get((req, res) => {
     products.find().exec((err, products) => {
 
         if(err){
@@ -75,7 +75,7 @@ router.route('/update/:id').put((req,res)=>{
 
 //Delete products
 router.route('/delete/:id').delete((req,res)=>{
-    products.findByIdAndRemove(req.params.productID).exec((err,deleteProduct)=>{
+    products.findByIdAndRemove(req.params.id).exec((err,deleteProduct)=>{
         
         if(err) return res.status(400).json({
             message: "Delete Unsuccessfully",err

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import FileBase64 from 'react-file-base64';
+// import FileBase64 from 'react-file-base64';
 
 export default class CreateProducts extends Component {
 
@@ -11,14 +11,14 @@ export default class CreateProducts extends Component {
             productName : "", 
             quantity : "", 
             originalTitle : "", 
-            productPrice : "", 
-            marketPrice : "", 
-            brandName : "", 
-            warrantYear : "", 
-            version : "", 
-            description : "", 
-            coverImage : "", 
-            availability : "", 
+            // productPrice : "", 
+            // marketPrice : "", 
+            // brandName : "", 
+            // warrantYear : "", 
+            // version : "", 
+            // description : "", 
+            // coverImage : "", 
+            // availability : "", 
         }
     }
 
@@ -32,36 +32,40 @@ export default class CreateProducts extends Component {
 
     onSubmit = (e)=>{
         e.preventDefault();
-        const{productName, quantity,coverImage,originalTitle,productPrice,description,marketPrice,brandName,warrantYear,version,availability} = this.state;
+        const{productName, quantity, originalTitle} = this.state;
+       
+            // const{productName, quantity, coverImage, originalTitle, productPrice, description, 
+        //     marketPrice, brandName, warrantYear, version, availability} = this.state;
+            
         const data = {
             productName:productName,
             quantity:quantity, 
             originalTitle:originalTitle,
-            productPrice:productPrice,      
-            marketPrice:marketPrice,
-            brandName:brandName,
-            warrantYear:warrantYear,
-            version:version,
-            description:description,
-            coverImage:coverImage,
-            availability:availability,
+            // productPrice:productPrice,      
+            // marketPrice:marketPrice,
+            // brandName:brandName,
+            // warrantYear:warrantYear,
+            // version:version,
+            // description:description,
+            // coverImage:coverImage,
+            // availability:availability,
         }
         console.log(data);
 
-        axios.post("/save", data).then((res) => {
+        axios.post("/products/save", data).then((res) => {
             if (res.data.success) {
                 this.setState({
                     productName : "", 
                     quantity : "", 
                     originalTitle : "", 
-                    productPrice : "", 
-                    marketPrice : "", 
-                    brandName : "", 
-                    warrantYear : "", 
-                    version : "", 
-                    description : "", 
-                    coverImage : "", 
-                    availability : "", 
+                    // productPrice : "", 
+                    // marketPrice : "", 
+                    // brandName : "", 
+                    // warrantYear : "", 
+                    // version : "", 
+                    // description : "", 
+                    // coverImage : "", 
+                    // availability : "", 
                 })
             }
         })
@@ -152,9 +156,9 @@ export default class CreateProducts extends Component {
             </select>
             </div>
 
-            <div>
+            {/* <div>
             <FileBase64 type="file" name="coverImage" multiple={ false } onDone={({ base64 }) => this.setState({ coverImage: base64 })}required/>
-            </div>
+            </div> */}
    
             <button className="btn btn-primary" type="submit" style={{marginBottom:'5px'}} onClick={this.onSubmit}>
                 &nbsp; Save

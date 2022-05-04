@@ -14,57 +14,59 @@ const productSchema = new mongoose.Schema ({
     originalTitle:{
         type: String,
         required: true,
-    },
-    
-    productPrice:{
-        type: Number,
-        required: false,
-    },
-    
-    marketPrice:{
-        type: Number,
-        required: false,
-    },
-    
-    brandName: {
-        type: String,
-        required: true,
-    },
-    
-    warrantYear: {
-        type: String,
-        required: true,
-    },
-    
-    version: {
-        type: String,
-        required: true,
-    } ,
-    
-    description:{
-        type: String,
-        required: false,
-    },
-    
-    coverImage: {
-        type: String,
-        required: true,
-    },
-    availability:{
-        type: String,
-        required: true,
-    },
-    
-    averageRating: {   
-     type: Number,  
-    },
-    
-    offerPrice :{
-       type: Number,
-       required: false,
-       default : 0
-    
     }
+    
+    // productPrice:{
+    //     type: Number,
+    //     required: false,
+    // },
+    
+    // marketPrice:{
+    //     type: Number,
+    //     required: false,
+    // },
+    
+    // brandName: {
+    //     type: String,
+    //     required: false,
+    // },
+    
+    // warrantYear: {
+    //     type: String,
+    //     required: false,
+    // },
+    
+    // version: {
+    //     type: String,
+    //     required: false,
+    // } ,
+    
+    // description:{
+    //     type: String,
+    //     required: false,
+    // },
+    
+    // coverImage: {
+    //     type: String,
+    //     required: false,
+    // },
+    
+    // availability:{
+    //     type: String,
+    //     required: false,
+    // },
+    
+    // averageRating: {   
+    //  type: Number,
+    //  required: false,  
+    // },
+    
+    // offerPrice :{
+    //    type: Number,
+    //    required: false,
+    //    default : 0
+    
+    // }
     
 });
 

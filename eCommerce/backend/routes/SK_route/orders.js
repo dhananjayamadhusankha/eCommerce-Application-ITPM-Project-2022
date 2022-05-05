@@ -1,13 +1,13 @@
 const express = require ('express');
-const carts = require ('../../models/SK_model/orders');
+const orders = require ('../../models/SK_model/orders');
 
 const router = express.Router();
 
-//save carts 
+//save orders 
 router.route('orders/save').post((req, res) => {
     
-    let newCarts = new carts(req.body);
-    newCarts.save((err) => {
+    let newOrders = new carts(req.body);
+    newOrders.save((err) => {
         
         if (err) {
             return res.status(400).json({
@@ -21,9 +21,9 @@ router.route('orders/save').post((req, res) => {
     });
 });
 
-//get carts
-router.route('carts/displayProducts').get((req, res) => {
-    carts.find().exec((err, carts) => {
+//get orders
+router.route('orders/displayOrders').get((req, res) => {
+    orders.find().exec((err, carts) => {
 
         if(err){
             return res.status(400),json({
@@ -33,34 +33,34 @@ router.route('carts/displayProducts').get((req, res) => {
         
         return res.status(200).json({
             success:true,
-            existingProducts:carts
+            existingProducts:orders
         });
     });
 });
 
 //get a specific carts
-router.route('carts/:id').get((req,res)=>{
-    let id = req.params.id;
+router.route('carts/:orderID').get((req,res)=>{
+    let orderID = req.params.orderID;
 
-    carts.findById(productID,(err,carts)=>{
+    orders.findById(orderID,(err,orders)=>{
         if(err){
             return res.status(400).json({success:false,err});
         }
         return res.status(200).json({
             success:true,
-            carts
+            orders
         });
     });
  });
 
  
-//update carts
-router.route('carts/update/:productID').put((req,res)=>{
-    carts.findByIdAndUpdate(
-        req.params.id,{
+//update orders
+router.route('orders/update/:oredrID').put((req,res)=>{
+    orders.findByIdAndUpdate(
+        req.params.orderID,{
             $set:req.body
         },
-        (err,product)=>{
+        (err,order)=>{
             
             if(err){
                 return res.status(400).json({error:err});
@@ -73,16 +73,16 @@ router.route('carts/update/:productID').put((req,res)=>{
     });
 
 
-//Delete carts
-router.route('/delete/:productID').delete((req,res)=>{
-    carts.findByIdAndRemove(req.params.productID).exec((err,deleteCart)=>{
+//Delete orders
+router.route('orders/delete/:orderID').delete((req,res)=>{
+    orders.findByIdAndRemove(req.params.orderID).exec((err,deleteOrder)=>{
         
         if(err) return res.status(400).json({
             message: "Delete Unsuccessfully",err
         });
        
         return res.json({
-            message: "Delete Successfull",deleteProduct
+            message: "Delete Successfull",deleteOrder
         });
     });
  });

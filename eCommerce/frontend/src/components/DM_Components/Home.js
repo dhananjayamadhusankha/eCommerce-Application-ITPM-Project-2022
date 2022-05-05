@@ -33,13 +33,36 @@ export default class Home extends Component {
             this.retrieveProducts();
         })
     }
-    
+
+    //search functions
+    filterData(products, searchKey){
+        const result = products.filter((product) =>
+            product.productName.toLowerCase().includes(searchKey)||
+            product.quantity.toString().toLowerCase().includes(searchKey)||
+            product.originalTitle.toLowerCase().includes(searchKey)
+        )
+        this.setState({products: result})
+    }
+
+    handleSearchArea = (e) => {
+        const searchKey = e.currentTarget.value;
+
+        axios.get("/products/displayProducts").then((res) => {
+            if (res.data.success) {
+                this.filterData(res.data.existingProducts,searchKey);
+            }
+        });
+    }
+
     render() {
         return (
             <div>
+                <div className="col-lg-3 mt-2 mb-2">
+                    <input className="form-control" type="search" placeholder="Search" name="searchQuery" onChange={this.handleSearchArea}></input>
+                </div>
                 <h2>All Products</h2>
                 <font size="2">
-                <table class="table">
+                <table className="table">
                 
                     <thead>
                         <tr bgcolor="#A0CFEC">
@@ -47,17 +70,6 @@ export default class Home extends Component {
                             <th scope="col">Product Name</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Original Title</th>
-                            {/* <th scope="col">Product Price</th>
-                            <th scope="col">Market Price</th>
-                            <th scope="col">Brand Name</th>
-                            <th scope="col">Warrant Year</th>
-                            <th scope="col">Version</th>
-                            <th scope="col">description</th>
-                            <th scope="col">coverImage</th>
-                            <th scope="col">Availability</th>
-                            <th scope="col">AverageRating</th>
-                            <th scope="col">OfferPrice</th>
-                            <th scope="col">Version</th> */}
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -72,17 +84,6 @@ export default class Home extends Component {
                         </td>
                         <td>{products.quantity}</td>
                         <td>{products.originalTitle}</td>
-                        {/* <td>{products.productPrice}</td>
-                        <td>{products.marketPrice}</td>
-                        <td>{products.brandName}</td>
-                        <td>{products.warrantYear}</td>
-                        <td>{products.version}</td>
-                        <td>{products.description}</td>
-                        <td>{products.coverImage}</td>
-                        <td>{products.availability}</td>
-                        <td>{products.averageRating}</td>
-                        <td>{products.offerPrice}</td>
-                        <td>{products.version}</td> */}
                         <td>
                             <a className="btn btn-warning" href={`/update/${products._id}`}>
                                 <i className="far fa-edit"></i>&nbsp;

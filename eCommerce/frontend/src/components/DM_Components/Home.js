@@ -39,17 +39,17 @@ export default class Home extends Component {
                             <th scope="col">Product Name</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Original Title</th>
-                            <th scope="col">Product Price</th>
+                            {/* <th scope="col">Product Price</th>
                             <th scope="col">Market Price</th>
                             <th scope="col">Brand Name</th>
                             <th scope="col">Warrant Year</th>
                             <th scope="col">Version</th>
-                            {/* <th scope="col">description</th> */}
-                            {/* <th scope="col">coverImage</th> */}
+                            <th scope="col">description</th>
+                            <th scope="col">coverImage</th>
                             <th scope="col">Availability</th>
                             <th scope="col">AverageRating</th>
                             <th scope="col">OfferPrice</th>
-                            <th scope="col">Version</th>
+                            <th scope="col">Version</th> */}
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -58,25 +58,25 @@ export default class Home extends Component {
                     <tr key={index}>
                         <th scope="row">{index+1}</th>
                         <td>
-                            <a href={`/products/${products._id}`} style = {{textDecoration:'none'}}> 
+                            <a href={`/product/display/${products._id}`} style = {{textDecoration:'none'}}> 
                             {products.productName}
                             </a>
                         </td>
                         <td>{products.quantity}</td>
                         <td>{products.originalTitle}</td>
-                        <td>{products.productPrice}</td>
+                        {/* <td>{products.productPrice}</td>
                         <td>{products.marketPrice}</td>
                         <td>{products.brandName}</td>
                         <td>{products.warrantYear}</td>
                         <td>{products.version}</td>
-                        {/* <td>{products.description}</td> */}
-                        {/* <td>{products.coverImage}</td> */}
+                        <td>{products.description}</td>
+                        <td>{products.coverImage}</td>
                         <td>{products.availability}</td>
                         <td>{products.averageRating}</td>
                         <td>{products.offerPrice}</td>
-                        <td>{products.version}</td>
+                        <td>{products.version}</td> */}
                         <td>
-                            <a className="btn btn-warning" href="#">
+                            <a className="btn btn-warning" href={`/update/${products._id}`}>
                                 <i className="far fa-edit"></i>&nbsp;
                             </a>
                             &nbsp;

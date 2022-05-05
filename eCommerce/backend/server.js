@@ -10,8 +10,6 @@ require('dotenv').config();
 app.use(bodyParser.json());
 app.use(cors());
 
-// require('dotenv').config({ path: '.env' });
-
 const PORT = process.env.PORT || 8070;
 
 const URL = process.env.MONGODB_URL;

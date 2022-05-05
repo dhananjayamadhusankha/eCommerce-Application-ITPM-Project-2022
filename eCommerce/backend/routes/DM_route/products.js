@@ -22,7 +22,7 @@ router.route('/products/save').post((req, res) => {
 });
 
 //get products
-router.route('/displayProducts').get((req, res) => {
+router.route('/products/displayProducts').get((req, res) => {
     products.find().exec((err, products) => {
 
         if(err){
@@ -39,7 +39,7 @@ router.route('/displayProducts').get((req, res) => {
 });
 
 //get a specific products
-router.route('/display/:id').get((req,res)=>{
+router.route('/product/display/:id').get((req,res)=>{
     let productID = req.params.id;
 
     products.findById(productID,(err,products)=>{
@@ -55,7 +55,7 @@ router.route('/display/:id').get((req,res)=>{
 
  
 //update products
-router.route('/update/:id').put((req,res)=>{
+router.route('/product/update/:id').put((req,res)=>{
     products.findByIdAndUpdate(
         req.params.id,{
             $set:req.body

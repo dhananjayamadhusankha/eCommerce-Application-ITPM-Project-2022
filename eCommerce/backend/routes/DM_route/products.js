@@ -74,7 +74,7 @@ router.route('/product/update/:id').put((req,res)=>{
 
 
 //Delete products
-router.route('/delete/:id').delete((req,res)=>{
+router.route('/product/delete/:id').delete((req,res)=>{
     products.findByIdAndRemove(req.params.id).exec((err,deleteProduct)=>{
         
         if(err) return res.status(400).json({

@@ -36,7 +36,7 @@ export default class EditProducts extends Component {
 
         axios.put(`/product/update/${id}`, data).then((res) => {
             if (res.data.success) {
-                alert("Product Details Updated Successfully");
+                alert("Product Updated Successfully");
                 this.setState({
                     productName : "", 
                     quantity : "", 

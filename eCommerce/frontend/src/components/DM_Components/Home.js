@@ -25,6 +25,14 @@ export default class Home extends Component {
             }
         });
     }
+
+    //delete function
+    onDelete = (id) => {
+        axios.delete(`/product/delete/${id}`).then((res) => {
+            alert('Deleted Product Successfully');
+            this.retrieveProducts();
+        })
+    }
     
     render() {
         return (
@@ -80,7 +88,7 @@ export default class Home extends Component {
                                 <i className="far fa-edit"></i>&nbsp;
                             </a>
                             &nbsp;
-                            <a className="btn btn-danger" href="#">
+                            <a className="btn btn-danger" onClick={()=>this.onDelete(products._id)}>
                                 <i className="far fa-trash-alt"></i>&nbsp;
                             </a>
                         </td>

@@ -54,6 +54,7 @@ export default class CreateProducts extends Component {
 
         axios.post("/products/save", data).then((res) => {
             if (res.data.success) {
+                alert("Product Added Successfully");
                 this.setState({
                     productName : "", 
                     quantity : "", 

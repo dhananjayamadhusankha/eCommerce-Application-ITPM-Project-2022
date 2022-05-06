@@ -1,36 +1,31 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-require('dotenv').config();
+const app = express();
 
-//add modleware
+//import routes
+const orderRoutes = require('./routes/SK_route/orders');
+
+//app middleware
 app.use(bodyParser.json());
 app.use(cors());
 
-// require('dotenv').config({ path: '.env' });
+//route middleware
+app.use(orderRoutes); 
 
-const PORT = process.env.PORT || 8070;
 
-const URL = process.env.MONGODB_URL;
+const PORT = 8000;
+const DB_URL = 'mongodb+srv://eCommerceApp:eCommerceApp@ecommerceapp.gpjyg.mongodb.net/eCommerceApp?retryWrites=true&w=majority'
 
-mongoose.connect(URL, { 
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then (() => {
-    console.log('DB Connected');
-})
-.catch(err => console.log('DB Connection error: ' + err.message));
+mongoose.connect(DB_URL).then(() =>{
+    console.log("DB connected")
+}).catch((err) => console.log("DB connection error",err));
 
-app.listen(PORT, () => {
-    console.log('Listening on port:' + PORT);
+
+app.listen(PORT, () =>{
+   
+    console.log(`Server is up and running on port: ${PORT}`);
 });
 
-//import routes
-const productRoutes = require('./routes/DM_route/products');
-
-//routes
-app.use("/products", productRoutes);

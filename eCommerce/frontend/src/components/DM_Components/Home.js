@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 export default class Home extends Component {
     constructor(props) {
@@ -29,7 +33,7 @@ export default class Home extends Component {
     //delete function
     onDelete = (id) => {
         axios.delete(`/product/delete/${id}`).then((res) => {
-            alert('Deleted Product Successfully');
+            toast.success('PDeleted Product Successfully',{position:toast.POSITION.TOP_CENTER});
             this.retrieveProducts();
         })
     }
@@ -38,8 +42,8 @@ export default class Home extends Component {
     filterData(products, searchKey){
         const result = products.filter((product) =>
             product.productName.toLowerCase().includes(searchKey)||
-            product.quantity.toString().toLowerCase().includes(searchKey)||
-            product.originalTitle.toLowerCase().includes(searchKey)
+            product.topic.toLowerCase().includes(searchKey)||
+            product.productCategory.toLowerCase().includes(searchKey)
         )
         this.setState({products: result})
     }
@@ -69,7 +73,9 @@ export default class Home extends Component {
                             <th scope="col">ID</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Quantity</th>
-                            <th scope="col">Original Title</th>
+                            <th scope="col">Product Category</th>
+                            <th scope="col">Availability</th>
+                            <th scope="col">Price</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -83,7 +89,9 @@ export default class Home extends Component {
                             </a>
                         </td>
                         <td>{products.quantity}</td>
-                        <td>{products.originalTitle}</td>
+                        <td>{products.productCategory}</td>
+                        <td>{products.availability}</td>
+                        <td>{products.price}</td>
                         <td>
                             <a className="btn btn-warning" href={`/update/${products._id}`}>
                                 <i className="far fa-edit"></i>&nbsp;

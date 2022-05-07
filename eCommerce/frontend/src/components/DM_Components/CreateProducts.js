@@ -47,21 +47,156 @@ export default class CreateProducts extends Component {
         }
         console.log(data);
 
-        axios.post("/products/save", data).then((res) => {
-            if (res.data.success) {
-                toast.success('Product Added Successfully',{position:toast.POSITION.TOP_CENTER});
-                this.setState({
-                    productName : "", 
-                    topic : "", 
-                    quantity : "", 
-                    description : "", 
-                    productCategory : "",
-                    availability : "", 
-                    price : "", 
-                    image : "",
-                })
+        //________________validate inputs_____________________
+        var numbers = /^[0-9.]+$/;
+                      
+        if(!this.state.productName || !this.state.topic || !this.state.quantity || !this.state.description|| !this.state.productCategory || !this.state.availability || !this.state.price){
+            // || !this.state.image
+
+            if(!this.state.productName){
+                toast.error('Please Enter Product Name', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
             }
-        })
+
+            if(!this.state.topic){
+                toast.error('Please Enter Topic', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }
+
+            if(!this.state.quantity){
+                toast.error('Please Enter Quantity', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });                            
+            }
+
+            if(!this.state.description){
+                toast.error('Please Enter Description', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }
+
+            if(!this.state.productCategory){
+                toast.error('Please Select Product Category', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }
+
+            if(!this.state.availability){
+                toast.error('Please select availability', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }
+
+
+
+            if(!this.state.price){
+                toast.error('Please Enter Product Price', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
+            }            
+
+            // if(!this.state.image){
+            //     toast.error('Please choose Image', {
+            //         position: "bottom-right",
+            //         autoClose: 6000,
+            //         closeOnClick: true,
+            //         pauseOnHover: true,
+            //         draggable: true,
+            //         progress: undefined,
+            //         }); 
+            // }
+            
+            else if(!quantity.match(numbers)){
+                toast.error('Cost Allowed  Positive Numbers Only', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                }); 
+             }
+
+             else if(!price.match(numbers)){
+                toast.error('Cost Allowed  Positive Numbers Only', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                }); 
+             }
+
+            else if(price <= 0 ){
+                toast.error('Please Enter Valid Amount', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });  
+            }
+              
+        }
+         
+        else{
+            axios.post("/products/save", data).then((res) => {
+                if (res.data.success) {
+                    toast.success('Product Added Successfully',{position:toast.POSITION.TOP_CENTER});
+                    this.setState({
+                        productName : "", 
+                        topic : "", 
+                        quantity : "", 
+                        description : "", 
+                        productCategory : "",
+                        availability : "", 
+                        price : "", 
+                        image : "",
+                    })
+                }
+            }).catch(()=>{
+                toast.error('Submited Unsuccessfully',{position:toast.POSITION.TOP_CENTER});
+            });
+         }        
     }
 
     render() {
@@ -99,7 +234,7 @@ export default class CreateProducts extends Component {
                 onChange={this.handleInputChange}/>
             </div>
 
-            <div class="col-md-6">
+            <div className="col-md-6">
             <label style={{marginBottom:'5px'}} className="form-label">Availability</label>
             <select className="form-control" name="availability"  value={this.state.availability}
                 onChange={this.handleInputChange} maxLength ="1000" required>
@@ -124,7 +259,7 @@ export default class CreateProducts extends Component {
           </select>
           </div>
 
-            <div class="mb-3">
+            <div className="mb-3">
             <label style={{marginBottom:'5px'}} className="form-label">Description</label>
             <textarea type="text"className="form-control" name="description" placeholder="Enter Description" value={this.state.description}
                 onChange={this.handleInputChange} maxLength ="1000"required/>
@@ -134,7 +269,7 @@ export default class CreateProducts extends Component {
             <FileBase64 type="file" name="image" multiple={ false } onDone={({ base64 }) => this.setState({ image: base64 })}/>
             </div>
    
-            <button className="btn btn-dark font-weight-bold" type="submit" style={{marginBottom:'5px'}} onClick={this.onSubmit}>
+            <button className="btn btn-primary font-weight-bold" type="submit" style={{marginBottom:'5px'}} onClick={this.onSubmit}>
                 &nbsp; SAVE
             </button>
         </form>

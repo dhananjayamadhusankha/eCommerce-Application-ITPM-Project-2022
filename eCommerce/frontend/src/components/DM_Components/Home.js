@@ -58,6 +58,26 @@ export default class Home extends Component {
         });
     }
 
+//     /*----------- PDF --------------- */
+//  async generateReport() {
+//     const obj = { posts: this.state.posts }
+//     await axios.post('/stockreport/generatestockreport', obj, { responseType: 'arraybuffer', headers: { Accept: 'application/pdf', }, }).then((res) => {
+  
+//         //alert('Report Generated')
+//         toast.success('Report Generated Successfully', { position: toast.POSITION.TOP_CENTER })
+//         console.log(res)
+//         console.log(res.data)
+  
+//         const pdfBlog = new Blob([res.data], { type: 'application/pdf' });
+//         saveAs(pdfBlog, 'stock.pdf');
+  
+//         //window.open(res.data, '_blank');
+//     }).catch((err) => {
+//         console.log(err.message)
+//     })
+//     console.log(obj)
+//   }
+
     render() {
         return (
             <div>

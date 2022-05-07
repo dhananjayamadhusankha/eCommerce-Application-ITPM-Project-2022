@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 export default class EditProducts extends Component {
 
@@ -36,7 +40,7 @@ export default class EditProducts extends Component {
 
         axios.put(`/product/update/${id}`, data).then((res) => {
             if (res.data.success) {
-                alert("Product Updated Successfully");
+                toast.success('Product Updated Successfully',{position:toast.POSITION.TOP_CENTER});
                 this.setState({
                     productName : "", 
                     quantity : "", 

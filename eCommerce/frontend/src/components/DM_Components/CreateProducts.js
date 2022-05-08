@@ -248,8 +248,8 @@ export default class CreateProducts extends Component {
             <select className="form-control" name="availability"  value={this.state.availability}
                 onChange={this.handleInputChange} maxLength ="1000" required>
                 <option value="">Enter Availability</option>
-                <option value="yes">In Stock</option>
-                <option value="no">Out Of Stock</option>
+                <option value="In Stock">In Stock</option>
+                <option value="Out Of Stock">Out Of Stock</option>
             </select>
             </div>
 

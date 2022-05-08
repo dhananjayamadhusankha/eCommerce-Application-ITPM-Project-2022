@@ -1,9 +1,42 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+// import FileBase64 from 'react-file-base64';
+// import {toast} from 'react-toastify';
+
+//import css file file
+import '../../css/ProductDetails.css'
 
 export default class ProductD extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            products: {}
+        };
+    }
+
+    componentDidMount(){
+
+        console.log(this.state.products);
+
+        const id = this.props.match.params.id;
+        
+        axios.get(`http://localhost:8070/product/display/${id}`).then((res) => {
+            if(res.data.success) {
+                this.setState({
+                    products:res.data.products
+                });
+
+                console.log(this.state.products);
+            }
+        });
+    }
+
     render() {
+
+        const {productName,topic, quantity, description, productCategory, availability, price, image} = this.state.products;
+       
         return (
             <div className="container">
                 <div className="product-content product-wrap clearfix product-deatil">
@@ -19,16 +52,8 @@ export default class ProductD extends Component {
                                     <div className="carousel-inner">
                                         {/* <!-- Slide 1 --> */}
                                         <div className="item active">
-                                            <img src="https://via.placeholder.com/700x400/FFB6C1/000000" className="img-responsive" alt="" />
-                                        </div>
-                                        {/* <!-- Slide 2 --> */}
-                                        <div className="item">
-                                            <img src="https://via.placeholder.com/700x400/87CEFA/000000" className="img-responsive" alt="" />
-                                        </div>
-                                        {/* <!-- Slide 3 --> */}
-                                        <div className="item">
-                                            <img src="https://via.placeholder.com/700x400/B0C4DE/000000" className="img-responsive" alt="" />
-                                        </div>
+                                            <img src={image} className="img-responsive" alt="" />
+                                            </div>
                                     </div>
                                     <a className="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span className="glyphicon glyphicon-chevron-left"></span> </a>
                                     <a className="right carousel-control" href="#myCarousel-2" data-slide="next"> <span className="glyphicon glyphicon-chevron-right"></span> </a>
@@ -37,9 +62,9 @@ export default class ProductD extends Component {
                         </div>
 
                         <div className="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
-                            <h2 className="name">
-                                Product Name Title Here
-                                <small>Product by <a href="javascript:void(0);">Adeline</a></small>
+                            <h1 className="name">
+                            {productName}</h1>
+                                <h4>{topic}</h4>
                                 <i className="fa fa-star fa-2x text-primary"></i>
                                 <i className="fa fa-star fa-2x text-primary"></i>
                                 <i className="fa fa-star fa-2x text-primary"></i>
@@ -47,12 +72,12 @@ export default class ProductD extends Component {
                                 <i className="fa fa-star fa-2x text-muted"></i>
                                 <span className="fa fa-2x"><h5>(109) Votes</h5></span>
                                 <a href="javascript:void(0);">109 customer reviews</a>
-                            </h2>
+                            
                             <hr />
-                            <h3 className="price-container">
-                                $129.54
+                            <h2 className="price-container font-weight-bold">
+                                Rs. {price}
                                 <small>*includes tax</small>
-                            </h3>
+                            </h2>
                             <div className="certified">
                                 <ul>
                                     <li>
@@ -64,21 +89,15 @@ export default class ProductD extends Component {
                                 </ul>
                             </div>
                             <hr />
-                            <div className="description description-tabs">
-                                <ul id="myTab" className="nav nav-pills">
-                                    <li className="active"><a href="#more-information" data-toggle="tab" className="no-margin">Product Description </a></li>
-                                    <li className=""><a href="#specifications" data-toggle="tab">Specifications</a></li>
-                                    <li className=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
-                                </ul>
+                            <div className="container">
+                                
                                 <div id="myTabContent" className="tab-content">
-                                    <div className="tab-pane fade active in" id="more-information">
-                                        <br />
+                                    
                                         <strong>Description Title</strong>
                                         <p>
-                                            Integer egestas, orci id condimentum eleifend, nibh nisi pulvinar eros, vitae ornare massa neque ut orci. Nam aliquet lectus sed odio eleifend, at iaculis dolor egestas. Nunc elementum pellentesque augue
-                                            sodales porta. Etiam aliquet rutrum turpis, feugiat sodales ipsum consectetur nec.
+                                            {description}
                                         </p>
-                                    </div>
+                                    
                                     <div className="tab-pane fade" id="specifications">
                                         <br />
                                         <dl className="">
@@ -171,13 +190,16 @@ export default class ProductD extends Component {
                             <hr />
                             <div className="row">
                                 <div className="col-sm-12 col-md-6 col-lg-6">
-                                    <a href="javascript:void(0);" className="btn btn-success btn-lg">Add to cart ($129.54)</a>
+                                    <a href="" className="btn btn-success btn-lg">Add to cart (Rs. {price})</a>
                                 </div>
                                 <div className="col-sm-12 col-md-6 col-lg-6">
                                     <div className="btn-group pull-right">
-                                        <button className="btn btn-white btn-default"><i className="fa fa-star"></i> Add to wishlist</button>
-                                        <button className="btn btn-white btn-default"><i className="fa fa-envelope"></i> Contact Seller</button>
+                                        <button className="btn btn-secondary btn-lg"><i className="fa fa-star"></i> Add to wishlist</button>
+                                        <button className="btn btn-secondary btn-lg"><i className="fa fa-envelope"></i> Contact Seller</button>
                                     </div>
+                                </div>
+                                <div className="container">
+                                    <h3 className="text-danger" style={{border: '4px solid', width: '33%', color: '#'}}>{availability}</h3>
                                 </div>
                             </div>
                         </div>

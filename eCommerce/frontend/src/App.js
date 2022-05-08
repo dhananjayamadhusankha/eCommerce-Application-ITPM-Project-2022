@@ -5,6 +5,7 @@ import Home from './components/DM_Components/Home';
 import CreateProducts from './components/DM_Components/CreateProducts'
 import EditProducts from './components/DM_Components/EditProducts';
 import ProductDetails from './components/DM_Components/ProductDetails';
+import ProductD from './components/DM_Components/ProductD';
 // import ProductHome from './components/DM_Components/ProductHome';
 
 export default class App extends Component {
@@ -19,6 +20,7 @@ export default class App extends Component {
                     <Route path="/save" component = {CreateProducts}></Route>
                     <Route path="/update/:id" component = {EditProducts}></Route>
                     <Route path="/display/:id" component = {ProductDetails}></Route>
+                    <Route path="/dis/:id" component = {ProductD}></Route>
                 </div>            
             </BrowserRouter>
         )

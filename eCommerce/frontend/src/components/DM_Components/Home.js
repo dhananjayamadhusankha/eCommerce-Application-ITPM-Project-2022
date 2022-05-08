@@ -142,7 +142,7 @@ export default class Home extends Component {
                     <tr key={index}>
                         <th scope="row">{index+1}</th>
                         <td>
-                            <a href={`/display/${products._id}`} style = {{textDecoration:'none'}}> 
+                            <a href={`/dis/${products._id}`} style = {{textDecoration:'none'}}> 
                             {products.productName}
                             </a>
                         </td>

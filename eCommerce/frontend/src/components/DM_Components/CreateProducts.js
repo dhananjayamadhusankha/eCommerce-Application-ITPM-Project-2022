@@ -50,8 +50,7 @@ export default class CreateProducts extends Component {
         //________________validate inputs_____________________
         var numbers = /^[0-9.]+$/;
                       
-        if(!this.state.productName || !this.state.topic || !this.state.quantity || !this.state.description|| !this.state.productCategory || !this.state.availability || !this.state.price){
-            // || !this.state.image
+        if(!this.state.productName || !this.state.topic || !this.state.quantity || !this.state.description|| !this.state.productCategory || !this.state.availability || !this.state.price || !this.state.image){
 
             if(!this.state.productName){
                 toast.error('Please Enter Product Name', {
@@ -132,16 +131,16 @@ export default class CreateProducts extends Component {
                     });
             }            
 
-            // if(!this.state.image){
-            //     toast.error('Please choose Image', {
-            //         position: "bottom-right",
-            //         autoClose: 6000,
-            //         closeOnClick: true,
-            //         pauseOnHover: true,
-            //         draggable: true,
-            //         progress: undefined,
-            //         }); 
-            // }
+            if(!this.state.image){
+                toast.error('Please choose Image', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    }); 
+            }
             
             else if(!quantity.match(numbers)){
                 toast.error('Cost Allowed  Positive Numbers Only', {
@@ -154,7 +153,7 @@ export default class CreateProducts extends Component {
                 }); 
              }
 
-             else if(!price.match(numbers)){
+            else if(!price.match(numbers)){
                 toast.error('Cost Allowed  Positive Numbers Only', {
                     position: "bottom-right",
                     autoClose: 6000,
@@ -163,9 +162,20 @@ export default class CreateProducts extends Component {
                     draggable: true,
                     progress: undefined,
                 }); 
-             }
+            }
 
             else if(price <= 0 ){
+                toast.error('Please Enter Valid Amount', {
+                    position: "bottom-right",
+                    autoClose: 6000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });  
+            }
+
+            else if(quantity <= 0 ){
                 toast.error('Please Enter Valid Amount', {
                     position: "bottom-right",
                     autoClose: 6000,
@@ -179,7 +189,7 @@ export default class CreateProducts extends Component {
         }
          
         else{
-            axios.post("/products/save", data).then((res) => {
+            axios.post("http://localhost:8070/products/save", data).then((res) => {
                 if (res.data.success) {
                     toast.success('Product Added Successfully',{position:toast.POSITION.TOP_CENTER});
                     this.setState({
@@ -201,7 +211,6 @@ export default class CreateProducts extends Component {
 
     render() {
         return (
-
             <div align="center">
             <div className="card shadow rounded mb-8 w-50 bg-white">
             <div className="card-header py-3 ">

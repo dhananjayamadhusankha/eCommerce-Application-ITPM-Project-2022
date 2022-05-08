@@ -5,7 +5,7 @@ import Home from './components/DM_Components/Home';
 import CreateProducts from './components/DM_Components/CreateProducts'
 import EditProducts from './components/DM_Components/EditProducts';
 import ProductDetails from './components/DM_Components/ProductDetails';
-import ProductHome from './components/DM_Components/ProductHome';
+// import ProductHome from './components/DM_Components/ProductHome';
 
 export default class App extends Component {
     render() {

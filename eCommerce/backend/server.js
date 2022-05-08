@@ -32,3 +32,7 @@ const productRoutes = require('./routes/DM_route/products');
 
 //routes
 app.use(productRoutes);
+
+// report generate routes
+const productPDFRoutes = require ('./routes/DM_route/PDF_Generator/products_report');
+app.use(productPDFRoutes);

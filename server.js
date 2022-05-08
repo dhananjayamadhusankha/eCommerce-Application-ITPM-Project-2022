@@ -26,12 +26,9 @@ app.use('/cartreport',cartReportGenerateRoute);
 
 
 const PORT = 8000;
-//nadun
-//const DB_URL = 'mongodb+srv://nadun:nadun31@itp.ugni7.mongodb.net/remedi?retryWrites=true&w=majority'
-//dulaj
-//const DB_URL = 'mongodb+srv://itpproject:projectpass@cluster0.ximc9.mongodb.net/customerdb?retryWrites=true&w=majority';
-const DB_URL ='mongodb+srv://ecommerce:ecommerce@cluster0.apfwk.mongodb.net/cartdb?retryWrites=true&w=majority'
 
+//const DB_URL ='mongodb+srv://ecommerce:ecommerce@cluster0.apfwk.mongodb.net/cartdb?retryWrites=true&w=majority'
+MONGODB_URL = 'mongodb+srv://eCommerceApp:eCommerceApp@ecommerceapp.gpjyg.mongodb.net/eCommerceApp?retryWrites=true&w=majority'
 
 mongoose.connect(DB_URL)
     .then(() => {

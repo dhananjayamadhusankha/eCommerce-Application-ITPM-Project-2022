@@ -2,4 +2,4 @@
 
 product insert part is not working
 
-added toast message
+added toast message for all cruds

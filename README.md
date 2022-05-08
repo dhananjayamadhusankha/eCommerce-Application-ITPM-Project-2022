@@ -10,3 +10,5 @@ I pushed the same code a twice (fixed)
 
 I can't get specifics product item (fixed)
 
+upload image
+

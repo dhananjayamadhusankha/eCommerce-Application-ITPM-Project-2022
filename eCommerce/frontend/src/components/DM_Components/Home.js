@@ -38,9 +38,11 @@ export default class Home extends Component {
 
     //delete function
     onDelete = (id) => {
+        if (window.confirm('Are you want to delete this product?'))
         axios.delete(`http://localhost:8070/product/delete/${id}`).then((res) => {
             toast.success('Product Deleted Successfully',{position:toast.POSITION.TOP_CENTER});
             this.retrieveProducts();
+            window.location="/productsList";
         })
     }
 
@@ -120,7 +122,7 @@ export default class Home extends Component {
                         <form className="dropdwonForm" onSubmit={this.handleSearchArea}>
                             <label style={{ color:'black', fontWeight:700}}>Availibility : </label>
                             <select className="btn btn-primary dropdown-toggle dropdown-toggle-split" onChange={this.handleSearchArea}>
-                                <option value="" >...</option>
+                                <option value="">Choose...</option>
                                 <option value="yes">In Stock</option>
                                 <option value="no">Out Of Stock</option>
                             </select>

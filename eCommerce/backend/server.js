@@ -6,10 +6,6 @@ const cors = require('cors');
 
 require('dotenv').config();
 
-// app.use(bodyParser.json());
-// app.use(cors());
-
-
 //add modleware
 app.use(bodyParser.json({limit: '50mb'}) );
 app.use(bodyParser.urlencoded({
@@ -28,7 +24,7 @@ mongoose.connect(URL, {
     useUnifiedTopology: true,
 })
 .then (() => {
-    console.log('DB Connection Successfully');
+    console.log('DB Connection Successfully..!');
 })
 .catch(err => console.log('DB Connection error: ' + err.message));
 
@@ -38,11 +34,11 @@ app.listen(PORT, () => {
 
 //import routes
 const productRoutes = require('./routes/DM_route/products');
-// const customerRoutes = require('./routes/OC_route/customers');
+const customerRoutes = require('./routes/OC_route/customer');
 
 //routes
 app.use(productRoutes);
-// app.use("/customer",customerRoutes);
+app.use("/customer",customerRoutes);
 
 // report generate routes
 const productPDFRoutes = require ('./routes/DM_route/PDF_Generator/products_report');

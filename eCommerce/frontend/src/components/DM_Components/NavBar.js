@@ -5,7 +5,7 @@ export default class NavBar extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">Home</a>
+                <a className="navbar-brand" href="/">Exclsv</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -15,37 +15,41 @@ export default class NavBar extends Component {
                     <a className="nav-link active" aria-current="page" href="/productList">Products</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="#">Link</a>
+                    <a className="nav-link active" href="/customer/dashboard">Dashboard</a>
                     </li>
                     <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a className="nav-link dropdown-toggle" href="#/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Dropdown
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a className="dropdown-item" href="#">Action</a></li>
-                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                        <li><a className="dropdown-item" href="#/">Action</a></li>
+                        <li><a className="dropdown-item" href="#/">Another action</a></li>
                         <li><hr className="dropdown-divider"></hr></li>
-                        <li><a className="dropdown-item" href="#">Something else here</a></li>
+                        <li><a className="dropdown-item" href="#/">Something else here</a></li>
                     </ul>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link disabled">Disabled</a>
+                    <a className="nav-link disabled" href="#/">Disabled</a>
                     </li>
                 </ul>
-                <form className="d-flex">
-                    <input 
-                    className="form-control me-2" 
-                    type="search" 
-                    placeholder="Search" 
-                    aria-label="Search"
-                    onChange={this.handleSearchArea}></input>
+                <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" className="form-control form-control-dark" placeholder="Search..." aria-label="Search"/>
+        </form>
 
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
+        <li className="nav-item px-2">
+          <a className="nav-link" href="#/" aria-disabled="true">
+            <i className="fas fa-2x text-light fa-shopping-cart"></i>
+            <span className="badge badge-warning badge-pill">0</span>
+          </a>
+        </li>
+
+        <div className="text-end">
+          <a href={"/customer/login"}><button type="button" className="btn btn-outline-light me-2" >Login</button></a>
+          <a href={"/customer/signup"}><button type="button" className="btn btn-primary">Sign-up</button></a>
+        </div>
                 </div>
             </div>
             </nav>
         )
     }
-
 }

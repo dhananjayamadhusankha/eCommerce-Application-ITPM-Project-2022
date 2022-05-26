@@ -214,12 +214,13 @@ export default class CreateProducts extends Component {
             <div align="center">
             <div className="card shadow rounded mb-8 w-50 bg-white">
             <div className="card-header py-3 ">
-            <div className="card-header text-white" style={{background: "#000"}}><h2>Create New Product</h2></div>
-            <br/> <form className="row g-3" >
-        
+            <div className="card-header text-white bg-dark"><h2>Create New Product</h2></div>
+            <br/> 
+            
+            <form className="row g-3" >
             <div className="mb-3">
-            <label style={{marginBottom:'5px'}} className="form-label"  Required="required"> Product Name </label>
-            <input type="text" className="form-control" name="productName" placeholder="Enter Product Name" Required = "required"
+            <label style={{marginBottom:'5px'}} className="form-label"  required="required"> Product Name </label>
+            <input type="text" className="form-control" name="productName" placeholder="Enter Product Name" required = "required"
                 value={this.state.productName}
                 onChange={this.handleInputChange} />
             </div>
@@ -232,14 +233,14 @@ export default class CreateProducts extends Component {
     
             <div className="col-md-6">
             <label style={{marginBottom:'5px'}} className="form-label">Quantity </label>
-            <input type="number" className="form-control" name="quantity" placeholder="Enter Quantity" Required = "required" 
+            <input type="number" className="form-control" name="quantity" placeholder="Enter Quantity" required = "required" 
                 value={this.state.quantity } 
                 onChange={this.handleInputChange} />
             </div>
     
             <div className="col-md-6">
-            <label style={{marginBottom:'5px'}} className="form-label"  Required="required">Price</label>
-            <input type="number" className="form-control" name="price" placeholder="Enter Product Price" Required = "required" value={this.state.price}
+            <label style={{marginBottom:'5px'}} className="form-label"  required="required">Price</label>
+            <input type="number" className="form-control" name="price" placeholder="Enter Product Price" required = "required" value={this.state.price}
                 onChange={this.handleInputChange}/>
             </div>
 
@@ -268,7 +269,6 @@ export default class CreateProducts extends Component {
                         <option value="Home And Kitchen">Home And Kitchen</option>
                         <option value="Digital Music">Digital Music</option>
                         <option value="Others">Others</option>
-                        
                 </select>
             </div>
 
@@ -289,8 +289,6 @@ export default class CreateProducts extends Component {
         </div>
         </div>
         </div>
-
         )
     }
-
 }

@@ -1,27 +1,27 @@
 const express = require("express");
 const router = require("express").Router();
-let customer = require("../../models/DH_models/customer");
+let customer = require("../../models/OC_model/customer");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const auth = require('../../middleware/cus_middleware/auth');
+const auth = require('../../middleware/Customer/auth');
 
 
-//sign up customer
+//Sign up customer
 router.post("/signup", async (req, res) => {
   try {
     const {
       name,
-      street,
-      city,
-      province,
-      country,
-      psCode,
-      phone,
-      DOB,
+      // street,
+      // city,
+      // province,
+      // country,
+      // psCode,
+      // phone,
+      // DOB,
       email,
       pwd,
-      imageUrl
+      // imageUrl
     } = req.body;
     
     let customer1 = await customer.findOne({ email });
@@ -31,16 +31,16 @@ router.post("/signup", async (req, res) => {
 
     customer1 = {
       name: name,
-      street: street,
-      city: city,
-      province: province,
-      country: country,
-      psCode: psCode,
-      phone: phone,
-      DOB: DOB,
+      // street: street,
+      // city: city,
+      // province: province,
+      // country: country,
+      // psCode: psCode,
+      // phone: phone,
+      // DOB: DOB,
       email: email,
       pwd: pwd,
-      imageUrl: imageUrl
+      // imageUrl: imageUrl
     };
 
     const newcustomer = new customer(customer1);
@@ -57,7 +57,7 @@ router.post("/signup", async (req, res) => {
 });
 
 
-//login customer
+//SignIn customer
 router.post('/login', async (req, res) => {
   try {
     const {email, pwd} = req.body
@@ -72,8 +72,8 @@ router.post('/login', async (req, res) => {
 })
 
     
-//logout customer
-router.post("/logout", auth, async (req, res) => {
+//SignOut customer
+router.post('/logout', auth, async (req, res) => {
 
   try {
     req.Cus.tokens = req.Cus.tokens.filter((token) => {
@@ -89,7 +89,7 @@ router.post("/logout", auth, async (req, res) => {
 
 
 //get customer profile
-router.get("/profile", auth, async (req, res) => {
+router.get('/profile', auth, async (req, res) => {
 
   try {
     res
@@ -110,15 +110,15 @@ router.put('/update', auth, async (req, res) => {
   try {
     const {
       name,
-      street,
-      city,
-      province,
-      country,
-      psCode,
-      phone,
-      DOB,
+      // street,
+      // city,
+      // province,
+      // country,
+      // psCode,
+      // phone,
+      // DOB,
       email,
-      imageUrl
+      // imageUrl
 
     } = req.body;
 
@@ -131,15 +131,15 @@ router.put('/update', auth, async (req, res) => {
     const customerUpdate = await customer.findByIdAndUpdate(req.Cus.id, 
       {
         name: name,
-        street: street,
-        city: city,
-        province: province,
-        country: country,
-        psCode: psCode,
-        phone: phone,
-        DOB: DOB,
+        // street: street,
+        // city: city,
+        // province: province,
+        // country: country,
+        // psCode: psCode,
+        // phone: phone,
+        // DOB: DOB,
         email: email,
-        imageUrl :imageUrl
+        // imageUrl :imageUrl
       })
 
     res.status(200).send({status: 'Customer Profile Updated', Cus: customerUpdate})
@@ -151,7 +151,7 @@ router.put('/update', auth, async (req, res) => {
 });
 
 //delete customer profile
-router.delete("/delete", auth, async (req, res) => {
+router.delete('/delete', auth, async (req, res) => {
   try {
     const Cus = await customer.findById(req.Cus.id);
     if (!Cus) {

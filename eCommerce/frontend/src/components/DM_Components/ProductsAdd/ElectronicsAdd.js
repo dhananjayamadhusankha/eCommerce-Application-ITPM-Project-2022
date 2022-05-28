@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React,{Component} from 'react';
 // import axios from 'axios';
 
 export default class ElectronicsAdd extends Component {
-
     render() {
         return (
             <div>

@@ -35,7 +35,7 @@ export default class ProductDetails extends Component {
 
     render() {
 
-        const {productName,topic, quantity, description, productCategory, availability, price, image} = this.state.products;
+        const {productName, description, productCategory, availability, price, image} = this.state.products;
        
         return (
             <div className="container">
@@ -64,27 +64,33 @@ export default class ProductDetails extends Component {
                         <div className="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
                             <h1 className="name">
                             {productName}</h1>
-                                <h4>{topic}</h4>
+                                <h4>{productCategory}</h4>
                                 <i className="fa fa-star fa-2x text-primary"></i>
                                 <i className="fa fa-star fa-2x text-primary"></i>
                                 <i className="fa fa-star fa-2x text-primary"></i>
                                 <i className="fa fa-star fa-2x text-primary"></i>
                                 <i className="fa fa-star fa-2x text-muted"></i>
                                 <span className="fa fa-2x"><h5>(109) Votes</h5></span>
-                                <a href="javascript:void(0);">109 customer reviews</a>
+                                <a href="#/">109 customer reviews</a>
                             
                             <hr />
-                            <h2 className="price-container font-weight-bold">
-                                Rs. {price}
-                                <small>*includes tax</small>
-                            </h2>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><h1><span class="badge bg-danger">Rs. {price}</span></h1></th>
+                                        <th><small>*includes tax</small></th>
+
+                                    </tr>
+                                </thead>
+                            </table>
+
                             <div className="certified">
                                 <ul>
                                     <li>
-                                        <a href="javascript:void(0);">Delivery time<span>7 Working Days</span></a>
+                                        <a href="#/">Delivery time<span>7 Working Days</span></a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">Certified<span>Quality Assured</span></a>
+                                        <a href="#/">Certified<span>Quality Assured</span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -123,19 +129,18 @@ export default class ProductDetails extends Component {
                                                 <button type="submit" className="btn btn-sm btn-primary pull-right">
                                                     Submit Review
                                                 </button>
-                                                <a href="javascript:void(0);" className="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Location"><i className="fa fa-location-arrow"></i></a>
-                                                <a href="javascript:void(0);" className="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Voice"><i className="fa fa-microphone"></i></a>
-                                                <a href="javascript:void(0);" className="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Photo"><i className="fa fa-camera"></i></a>
-                                                <a href="javascript:void(0);" className="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add File"><i className="fa fa-file"></i></a>
+                                                <a href="#/" className="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Location"><i className="fa fa-location-arrow"></i></a>
+                                                <a href="#/" className="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Voice"><i className="fa fa-microphone"></i></a>
+                                                <a href="#/" className="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add Photo"><i className="fa fa-camera"></i></a>
+                                                <a href="#/" className="btn btn-link profile-link-btn" rel="tooltip" data-placement="bottom" title="" data-original-title="Add File"><i className="fa fa-file"></i></a>
                                             </div>
                                         </form>
 
                                         <div className="chat-body no-padding profile-message">
                                             <ul>
                                                 <li className="message">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" className="online" />
                                                     <span className="message-text">
-                                                        <a href="javascript:void(0);" className="username">
+                                                        <a href="#/" className="username">
                                                             Alisha Molly
                                                             <span className="badge">Purchase Verified</span>
                                                             <span className="pull-right">
@@ -150,7 +155,7 @@ export default class ProductDetails extends Component {
                                                     </span>
                                                     <ul className="list-inline font-xs">
                                                         <li>
-                                                            <a href="javascript:void(0);" className="text-info"><i className="fa fa-thumbs-up"></i> This was helpful (22)</a>
+                                                            <a href="#/" className="text-info"><i className="fa fa-thumbs-up"></i> This was helpful (22)</a>
                                                         </li>
                                                         <li className="pull-right">
                                                             <small className="text-muted pull-right ultra-light"> Posted 1 year ago </small>
@@ -158,9 +163,8 @@ export default class ProductDetails extends Component {
                                                     </ul>
                                                 </li>
                                                 <li className="message">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" className="online" />
                                                     <span className="message-text">
-                                                        <a href="javascript:void(0);" className="username">
+                                                        <a href="#/" className="username">
                                                             Aragon Zarko
                                                             <span className="badge">Purchase Verified</span>
                                                             <span className="pull-right">
@@ -175,7 +179,7 @@ export default class ProductDetails extends Component {
                                                     </span>
                                                     <ul className="list-inline font-xs">
                                                         <li>
-                                                            <a href="javascript:void(0);" className="text-info"><i className="fa fa-thumbs-up"></i> This was helpful (22)</a>
+                                                            <a href="#/" className="text-info"><i className="fa fa-thumbs-up"></i> This was helpful (22)</a>
                                                         </li>
                                                         <li className="pull-right">
                                                             <small className="text-muted pull-right ultra-light"> Posted 1 year ago </small>
@@ -190,7 +194,7 @@ export default class ProductDetails extends Component {
                             <hr />
                             <div className="row">
                                 <div className="col-sm-12 col-md-6 col-lg-6">
-                                    <a href="" className="btn btn-success btn-lg">Add to cart (Rs. {price})</a>
+                                    <a href="#/" className="btn btn-warning btn-lg fw-bold">Add to cart (Rs. {price})</a>
                                 </div>
                                 <div className="col-sm-12 col-md-6 col-lg-6">
                                     <div className="btn-group pull-right">
@@ -199,7 +203,7 @@ export default class ProductDetails extends Component {
                                     </div>
                                 </div>
                                 <div className="container">
-                                    <h3 className="text-danger" style={{border: '4px solid', width: '33%', color: '#'}}>{availability}</h3>
+                                    <h3><span class="badge bg-success">{availability}</span></h3>
                                 </div>
                             </div>
                         </div>

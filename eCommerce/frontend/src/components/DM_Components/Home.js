@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import RefreshIcon from '@material-ui/icons/Refresh';
-// import IconButton from '@material-ui/core/IconButton';
-// import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
-// import Button from '@material-ui/core/Button';
 import {saveAs}  from 'file-saver';
 
 toast.configure()
@@ -18,6 +14,14 @@ export default class Home extends Component {
         this.state = {
             products: []
         };
+    }
+
+    refreshPage(){
+        window.location.reload();   
+       
+       }
+    generatepdf(){
+        window.location.reload();
     }
 
     //Retrieve Product
@@ -36,7 +40,7 @@ export default class Home extends Component {
         });
     }
 
-    //delete function
+    // //delete function
     onDelete = (id) => {
         if (window.confirm('Are you want to delete this product?'))
         axios.delete(`http://localhost:8070/product/delete/${id}`).then((res) => {
@@ -45,6 +49,16 @@ export default class Home extends Component {
             window.location="/productsList";
         })
     }
+
+
+    //delete function
+    // onDelete = (id) => {
+    //     axios.delete(`http://localhost:8070/product/delete/${id}`).then((res) => {
+    //         toast.success('Product Deleted Successfully',{position:toast.POSITION.TOP_CENTER});
+    //         this.retrieveProducts();
+    //         // window.location="/productsList";
+    //     })
+    // }
 
     //search functions
     filterData(products, searchKey){
@@ -90,13 +104,13 @@ export default class Home extends Component {
                 <div className='row'>
                     <div className='col-lg-9 mt-2 mb-2'>
                     
-                    <h2>ALL PRODUCTS</h2>
+                    <h2 className='fw-bold'>ALL PRODUCTS</h2>
                 
                     </div>
                     <div className='col-lg-3 mt-2 mb-2'>
                     <input className='form-control'
                         type="search"
-                        placeholder='search'
+                        placeholder='Search...'
                         name="searchQuery"
                         onChange={this.handleSearchArea}>
 
@@ -108,14 +122,21 @@ export default class Home extends Component {
 
                 <div className='row'>
                     <div className='col-lg-9 mt-2 mb-2'>
-                        <button className="btn btn-success"> <a href="/save" 
-                        style={{textDecoration:'none', color:'white'}}>Create Product</a></button>
+                        <button className="btn btn-success">
+                            <i className="fa-solid fa-square-plus icon-white" style={{textDecoration:'none', color:'white'}} href="/save"></i>  Create Product
+                        </button>
                     </div>
 
                     <div className='col-lg-3 mt-2 mb-2'>
-                        <button className="btn btn-secondary" type="button"
-                        style={{textDecoration:'none',color:'white'}} 
-                        onClick={this.generateReport}>Generate Report</button>
+                        <button className="btn btn-secondary" type="button" onClick={this.generateReport}>
+                            <i class="fa-solid fa-file-chart-pie"></i>Generate Report
+                        </button>
+                        &nbsp; &nbsp;
+
+                        <button className="btn btn-warning" type="button" onClick={this.refreshPage}>
+                            <i class="fa-solid fa-arrow-rotate-right"></i> Refresh
+                        </button><i class=""></i>
+                        &nbsp;&nbsp;
                     </div>
 
                     <div className="col-lg-3 mt-2 mb-2">

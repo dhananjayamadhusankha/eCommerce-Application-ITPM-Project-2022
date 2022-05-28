@@ -65,7 +65,7 @@ router.post("/generateproductreport", async function (req, res, next) {
 
     // Create the table
     const table = {
-        headers: ["Product Name","Topic", "Quantity", "Price","Availability","Product Category","Description"],
+        headers: ["Product Name","Topic", "Quantity", "Product Category","Availability","Price"],
         rows: [],
     };
 
@@ -74,7 +74,7 @@ router.post("/generateproductreport", async function (req, res, next) {
             productsItem.productName,
             productsItem.topic,
             productsItem.quantity,
-            productsItem.description,
+            // productsItem.description,
             productsItem.productCategory,
             productsItem.availability,
             productsItem.price,

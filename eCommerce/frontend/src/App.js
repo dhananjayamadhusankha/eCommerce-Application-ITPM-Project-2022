@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 import NavBar from './components/DM_Components/NavBar'
 import Home from './components/DM_Components/Home';
+import Footer from './components/DM_Components/Footer'
 
 //Customer components
 import CusLogin from './components/OC_Components/CusLogin';
@@ -11,6 +12,7 @@ import CusUpdate from './components/OC_Components/CusUpdate';
 
 //Admin componenets
 import AdminDashboard from './components/DM_Components/Admin/AdminDashboard';
+import AdminAccount from './components/DM_Components/Admin/AdminAccount'
 
 //Product component
 import CreateProducts from './components/DM_Components/CreateProducts'
@@ -52,6 +54,7 @@ export default class App extends Component {
 
                     {/* import Admin componenets */}
                     <Route path="/admin/dashboard" exact component={AdminDashboard}></Route>
+                    <Route path="/admin/adminAccount" component = {AdminAccount}></Route>
                     
                     {/* Routes for product add components */}
                     <Route path="/display/booksAdd" component = {BooksAdd}></Route>
@@ -65,7 +68,10 @@ export default class App extends Component {
                     <Route path="/display/SportsOutdoorsAdd" component = {SportsOutdoorsAdd}></Route>
                     <Route path="/display/WomenFashionsAdd" component = {WomenFashionsAdd}></Route>
 
-                </div>            
+                </div>
+                <div>
+                    <Footer/>
+                </div>
             </BrowserRouter>
         )
     }

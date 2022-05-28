@@ -260,8 +260,8 @@ export default class CreateProducts extends Component {
                     onChange={this.handleInputChange} required>
                         <option value="">Enter Product Category</option>
                         <option value="Books">Books</option>
-                        <option value="Computers">Computers</option>
-                        <option value="Electronics">Electronics</option>
+                        <option value="Computers And Accessories">Computers</option>
+                        <option value="Electronics Items">Electronics</option>
                         <option value="Men's Fashion">Men's Fashion</option>
                         <option value="Women's Fashion">Women's Fashion</option>
                         <option value="Mobile Phones">Mobile Phones</option>

@@ -35,7 +35,7 @@ export default class ProductDetails extends Component {
 
     render() {
 
-        const {productName,topic, quantity, description, productCategory, availability, price, image} = this.state.products;
+        const {productName, description, productCategory, availability, price, image} = this.state.products;
        
         return (
             <div className="container">
@@ -64,7 +64,7 @@ export default class ProductDetails extends Component {
                         <div className="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
                             <h1 className="name">
                             {productName}</h1>
-                                <h4>{topic}</h4>
+                                <h4>{productCategory}</h4>
                                 <i className="fa fa-star fa-2x text-primary"></i>
                                 <i className="fa fa-star fa-2x text-primary"></i>
                                 <i className="fa fa-star fa-2x text-primary"></i>

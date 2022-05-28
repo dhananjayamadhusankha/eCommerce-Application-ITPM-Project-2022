@@ -15,7 +15,7 @@ export default class AdminDashboard extends Component {
             <div class="card-body">
               <div class="card-title">
                 <i class="fas fa-2x fa-truck"></i>
-                <span class="h4">Delivery</span>
+                <span class="h4"> Delivery</span>
               </div>
               <small class="text-muted">Track orders placed by users.</small>
             </div>
@@ -24,12 +24,12 @@ export default class AdminDashboard extends Component {
       </div>
 
       <div class="col-md-4">
-        <a href="add_new_product.html" class="btn w-100">
+        <a href="/save" class="btn w-100">
           <div class="card">
             <div class="card-body">
               <div class="card-title">
                 <i class="fas fa-2x fa-cart-plus"></i>
-                <span class="h4">Add New Product</span>
+                <span class="h4"> Add New Product</span>
               </div>
               <small class="text-muted">Create a new product to sell.</small>
             </div>
@@ -43,7 +43,7 @@ export default class AdminDashboard extends Component {
             <div class="card-body">
               <div class="card-title">
                 <i class="fas fa-2x fa-user-edit"></i>
-                <span class="h4">Update Account</span>
+                <span class="h4"> Update Account</span>
               </div>
               <small class="text-muted">Edit seller account details.</small>
             </div>
@@ -55,12 +55,12 @@ export default class AdminDashboard extends Component {
 
     <div class="row">
       <div class="col-md-4">
-        <a href="seller_account_intro.html" class="btn w-100">
+        <a href="/productList" class="btn w-100">
           <div class="card">
             <div class="card-body">
               <div class="card-title">
                 <i class="fas fa-2x fa-list-ol"></i>
-                <span class="h4">Product List</span>
+                <span class="h4"> Product List</span>
               </div>
               <small class="text-muted">Check your all products</small>
             </div>
@@ -75,7 +75,7 @@ export default class AdminDashboard extends Component {
             <div class="card-body">
               <div class="card-title">
                 <i class="fas fa-2x fa-store-alt-slash"></i>
-                <span class="h4">Close Account</span>
+                <span class="h4"> Close Account</span>
               </div>
               <small class="text-muted">Facing losses ? Then close your account.</small>
             </div>

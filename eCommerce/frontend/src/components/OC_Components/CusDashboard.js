@@ -58,7 +58,7 @@ export default class AdminDashboard extends Component {
                         <div className="card-body">
                         <div className="card-title">
                             <i className="fas fa-2x fa-shopping-bag"></i>
-                            <span className="h4">Your Products</span>
+                            <span className="h4"> Your Products</span>
                         </div>
                         <small className="text-muted">Track, return or buy things again.</small>
                         </div>
@@ -72,7 +72,7 @@ export default class AdminDashboard extends Component {
                         <div className="card-body">
                         <div className="card-title">
                             <i className="fas fa-2x fa-key"></i>
-                            <span className="h4">Update Profile</span>
+                            <span className="h4"> Update Profile</span>
                         </div>
                         <small className="text-muted">Change your password.</small>
                         </div>
@@ -86,7 +86,7 @@ export default class AdminDashboard extends Component {
                         <div className="card-body">
                         <div className="card-title">
                             <i className="fas fa-2x fa-map-marked-alt"></i>
-                            <span className="h4">Your Addresses</span>
+                            <span className="h4"> Your Addresses</span>
                         </div>
                         <small className="text-muted">Edit addresses for orders.</small>
                         </div>
@@ -103,7 +103,7 @@ export default class AdminDashboard extends Component {
                         <div className="card-body">
                         <div className="card-title">
                             <i className="fas fa-universal-access fa-2x"></i>
-                            <span className="h4">Seller Account</span>
+                            <span className="h4"> Seller Account</span>
                         </div>
                         <small className="text-muted">Sell your products.</small>
                         </div>
@@ -114,10 +114,6 @@ export default class AdminDashboard extends Component {
             </div> 
             {/* <!-- Your Account Ends --> */}
 
-
-            <a href="#/" className="btn btn-outline-success btn-sm w-100 mt-2">
-            <i class="fa-solid fa-trash-can" ></i> Delete Profile
-            </a>
             </div>
         )
     }

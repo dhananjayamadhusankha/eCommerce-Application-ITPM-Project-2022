@@ -1,4 +1,4 @@
-# ITPM-Integration
+# eCommerce-Application-ITPM-Project-2022
 
 ## Group Members
 

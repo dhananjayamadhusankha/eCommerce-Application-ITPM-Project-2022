@@ -1,6 +1,6 @@
 # eCommerce-Application-ITPM-Project-2022
 
-## Group Members
+# Group Members
 
 ### This project is used by the following companies:
 

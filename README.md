@@ -2,7 +2,7 @@
 
 ## Group Members
 
-### This project is used by the following companies:
+This project is used by the following companies:
 
 - Member 1 IT20050030 Gamage S.K (Group Leader)
 - Member 2 IT20025380 Madhusankha N.H.D

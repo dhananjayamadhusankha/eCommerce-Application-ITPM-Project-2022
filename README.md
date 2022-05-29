@@ -6,8 +6,8 @@
 
 - Member 1 IT20050030 Gamage S.K (Group Leader)
 - Member 2 IT20025380 Madhusankha N.H.D
-- Member 3 IT2012 Gamage O.C
-- Member 4 IT20122850 Perera S.S.A.
+- Member 3 IT20121624 Gamage O.C
+- Member 4 IT2010 Perera S.S.A.
 ### Technologies used
 
 - Frontend: HTML, CSS (Bootstrap)
